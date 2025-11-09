@@ -132,8 +132,13 @@ Before diving into complex solutions, it's important to identify whether the iss
 Modern smartphones offer various tools to manage storage efficiently, including cloud storage options, storage analyzers, and automatic cleanup features. Regular maintenance can prevent storage from becoming a persistent problem.`,
     visualGuide: {
       title: 'Visual Guide: Storage Management',
-      image: 'https://images.pexels.com/photos/20360351/pexels-photo-20360351.jpeg',
-      description: 'Check Settings → Storage to see a breakdown of what\'s using space'
+      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&q=80',
+      description: 'Check Settings → Storage to see a breakdown of what\'s using space',
+      steps: [
+        { number: 1, text: 'Open Settings and tap Storage', icon: '⚙️' },
+        { number: 2, text: 'Review storage breakdown by category', icon: '💾' },
+        { number: 3, text: 'Tap categories to delete unused items', icon: '🗑️' }
+      ]
     },
     steps: [
       'Open Settings > Storage to see what\'s taking up space on your device',
