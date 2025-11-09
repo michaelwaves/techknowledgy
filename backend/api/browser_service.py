@@ -23,7 +23,7 @@ class BrowserStepRequest(BaseModel):
 async def perform_browser_action(request: BrowserActionRequest):
     """Perform a single browser action"""
     try:
-        with sync_playwright() as p:
+        async with async_playwright() as p:
             browser = p.chromium.launch(headless=True)
             context = browser.new_context(
                 viewport={'width': 1280, 'height': 720},
