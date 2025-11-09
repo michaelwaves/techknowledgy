@@ -213,7 +213,7 @@ The good news is that most performance issues can be resolved through optimizati
     ],
   },
   screen: {
-    explanation: `Screen and display issues can range from touch responsiveness problems to brightness issues or dead pixels. Your ${phoneModel} display is one of its most important components, and proper care can prevent many common issues.\n\nMost screen problems are software-related and can be fixed without hardware repair. However, physical damage like cracks or water damage may require professional service.`,
+    explanation: `Screen and display issues can range from touch responsiveness problems to brightness issues or dead pixels. Your device's display is one of its most important components, and proper care can prevent many common issues.\n\nMost screen problems are software-related and can be fixed without hardware repair. However, physical damage like cracks or water damage may require professional service.`,
     steps: [
       'Clean your screen thoroughly with a microfiber cloth to remove dirt and oils',
       'Restart your device to resolve temporary display glitches',
