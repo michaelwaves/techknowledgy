@@ -3,20 +3,23 @@ import Header from '@/components/layout/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import TroubleshootForm from '@/components/sections/TroubleshootForm';
 import QuickQuestions from '@/components/sections/QuickQuestions';
-import AnswerDisplay from '@/components/sections/AnswerDisplay';
-import QuickChatInterface from '@/components/sections/QuickChatInterface';
+import ChatInterface from '@/components/sections/ChatInterface';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import Footer from '@/components/layout/Footer';
 
 export default function HomePage() {
-  const [troubleshootData, setTroubleshootData] = useState(null);
+  const [chatData, setChatData] = useState(null);
   const [prefilledQuestion, setPrefilledQuestion] = useState('');
 
   const handleTroubleshoot = (data) => {
-    setTroubleshootData(data);
-    // Scroll to answer section smoothly
+    setChatData({
+      initialQuestion: data.question,
+      initialAnswer: data.answer,
+      phoneModel: data.phoneModel
+    });
+    // Scroll to chat section smoothly
     setTimeout(() => {
-      document.getElementById('answer-section')?.scrollIntoView({ 
+      document.getElementById('chat-section')?.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
@@ -44,7 +47,7 @@ export default function HomePage() {
         }} />
         
         {/* Quick Questions Section */}
-        {!troubleshootData && (
+        {!chatData && (
           <QuickQuestions onSelectQuestion={handleQuickQuestion} />
         )}
         
@@ -56,20 +59,18 @@ export default function HomePage() {
           />
         </div>
         
-        {troubleshootData && (
-          <>
-            <div id="answer-section">
-              <AnswerDisplay data={troubleshootData} />
-            </div>
-            <QuickChatInterface 
-              question={troubleshootData.question}
-              answer={troubleshootData.answer}
-              phoneModel={troubleshootData.phoneModel}
+        {/* Chat Interface */}
+        {chatData && (
+          <div id="chat-section">
+            <ChatInterface 
+              initialQuestion={chatData.initialQuestion}
+              initialAnswer={chatData.initialAnswer}
+              phoneModel={chatData.phoneModel}
             />
-          </>
+          </div>
         )}
         
-        <FeaturesSection />
+        {!chatData && <FeaturesSection />}
       </main>
       <Footer />
     </div>
