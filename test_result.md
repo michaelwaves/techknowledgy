@@ -195,6 +195,78 @@ frontend:
           agent: "testing"
           comment: "✅ PASSED - Responsive design working excellently: mobile viewport (375x667) shows hero section properly, troubleshoot form accessible with 5 buttons, tablet viewport (768x1024) displays hero section and features section correctly with all 4 feature cards, layout adapts well across all tested screen sizes"
 
+  - task: "Screen Sharing Form Updates"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/sections/TroubleshootForm.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Testing required - verify form shows updated subtitle 'Tell us what's wrong or share your screen for instant analysis', OR divider between text form and screen sharing section, Screen Analysis section has teal/cyan background (accent-light), and privacy notice is visible with AlertCircle icon"
+
+  - task: "Screen Sharing Button Functionality"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/sections/TroubleshootForm.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Testing required - verify Share Screen for Analysis button is present and styled correctly, disabled when no device model selected, shows error toast when clicked without device, becomes enabled after device selection, and shows Monitor icon"
+
+  - task: "Screen Sharing User Experience Flow"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/sections/TroubleshootForm.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Testing required - test complete flow: select device → click screen share button, verify button shows 'Analyzing Screen...' state during processing, check toast notifications appear: 'Select the screen or window...' at start, 'Screen captured! Analyzing...' after capture, 'Screen analysis complete!' when done"
+
+  - task: "Screen Capture Answer Display"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/sections/AnswerDisplay.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Testing required - verify answer section displays with 'Screen Analysis' badge, captured screenshot thumbnail appears in answer, 'Analysis Results' card shows detected issues, each issue shows confidence level badges, step-by-step guide is specific to screen analysis"
+
+  - task: "Screen Sharing Privacy & Security"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/sections/TroubleshootForm.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Testing required - confirm privacy notice mentions local processing, verify recommendation to close sensitive windows"
+
+  - task: "Screen Sharing Integration with Existing Features"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/sections/TroubleshootForm.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Testing required - test that text-based troubleshooting still works, verify both methods (text & screen) can be used alternately, check dark mode compatibility with new screen sharing UI"
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
