@@ -268,6 +268,28 @@ export default function ChatInterface({ initialQuestion, initialAnswer, phoneMod
                                 </div>
                               )}
 
+                              {/* Browser Screenshot */}
+                              {message.hasBrowserDemo && message.content.browserScreenshot && (
+                                <div className="mt-4 rounded-lg overflow-hidden border border-border bg-muted/30">
+                                  <div className="p-3 bg-primary/10 border-b border-border">
+                                    <div className="flex items-center gap-2 text-primary">
+                                      <Eye className="h-4 w-4" />
+                                      <span className="text-sm font-semibold">Live Browser Capture</span>
+                                    </div>
+                                    {message.content.browserUrl && (
+                                      <p className="text-xs text-muted-foreground mt-1">{message.content.browserUrl}</p>
+                                    )}
+                                  </div>
+                                  <div className="p-4">
+                                    <img
+                                      src={message.content.browserScreenshot}
+                                      alt="Browser screenshot"
+                                      className="w-full rounded-lg shadow-md"
+                                    />
+                                  </div>
+                                </div>
+                              )}
+
                               {/* Steps */}
                               {message.content.steps && message.content.steps.length > 0 && (
                                 <div className="mt-4">
