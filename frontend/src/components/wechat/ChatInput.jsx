@@ -76,7 +76,7 @@ export default function ChatInput({ onSendMessage }) {
     const recognition = startVoiceRecognition(
       (result) => {
         // Store the transcript for when we stop
-        recognitionRef.current = result.final || result.interim;
+        transcriptRef.current = result.final || result.interim;
       },
       (error) => {
         toast.error(error);
@@ -88,6 +88,7 @@ export default function ChatInput({ onSendMessage }) {
     );
 
     if (recognition) {
+      recognitionRef.current = recognition;
       recognition.start();
     }
   };
