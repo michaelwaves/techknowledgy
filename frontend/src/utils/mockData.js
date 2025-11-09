@@ -62,6 +62,11 @@ For optimal battery performance, it's essential to manage your device's power-co
     explanation: `WiFi connectivity issues can stem from various sources including router problems, network settings, software glitches, or interference from other devices. The problem might be with your device's WiFi adapter, the router's configuration, or even your internet service provider.
 
 Before diving into complex solutions, it's important to identify whether the issue is specific to your device or affects all devices on the network. This will help narrow down the root cause.`,
+    visualGuide: {
+      title: 'Visual Guide: WiFi Settings',
+      image: 'https://images.unsplash.com/photo-1753973170095-09e6a8515a0f',
+      description: 'Go to Settings → WiFi to manage your network connections'
+    },
     steps: [
       'Toggle WiFi off and on in your device settings - this refreshes the connection',
       'Restart your phone completely to clear any temporary software glitches',
