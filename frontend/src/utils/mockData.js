@@ -7,8 +7,13 @@ const commonIssues = {
 For optimal battery performance, it's essential to manage your device's power-consuming features and keep your system updated. Most modern devices have built-in battery health monitoring tools that can help identify problematic apps or settings.`,
     visualGuide: {
       title: 'Visual Guide: Battery Settings',
-      image: 'https://images.unsplash.com/photo-1607027340685-3e1ae9a54a93',
-      description: 'Navigate to Settings → Battery to see which apps are using the most power'
+      image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&h=600&fit=crop&q=80',
+      description: 'Navigate to Settings → Battery to see which apps are using the most power',
+      steps: [
+        { number: 1, text: 'Open your device Settings app', icon: '⚙️' },
+        { number: 2, text: 'Tap on "Battery" or "Battery & Power"', icon: '🔋' },
+        { number: 3, text: 'Review which apps use the most battery', icon: '📊' }
+      ]
     },
     steps: [
       'Open Settings and navigate to Battery settings to identify apps consuming the most power',
