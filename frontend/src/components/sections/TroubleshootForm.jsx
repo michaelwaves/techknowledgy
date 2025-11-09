@@ -13,7 +13,7 @@ import { captureScreen, analyzeScreenshot } from '@/utils/screenCapture';
 import { generateScreenAnalysisAnswer } from '@/utils/screenAnalysisData';
 import { startVoiceRecognition, isSpeechRecognitionSupported } from '@/utils/voiceRecognition';
 
-export default function TroubleshootForm({ onSubmit }) {
+export default function TroubleshootForm({ onSubmit, prefilledQuestion = '', onQuestionUsed }) {
   const [question, setQuestion] = useState('');
   const [phoneModel, setPhoneModel] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +22,16 @@ export default function TroubleshootForm({ onSubmit }) {
   const [interimText, setInterimText] = useState('');
   const recognitionRef = useRef(null);
   const fullTranscriptRef = useRef('');
+
+  // Handle prefilled question
+  useEffect(() => {
+    if (prefilledQuestion && prefilledQuestion !== question) {
+      setQuestion(prefilledQuestion);
+      if (onQuestionUsed) {
+        onQuestionUsed();
+      }
+    }
+  }, [prefilledQuestion]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
