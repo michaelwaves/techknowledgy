@@ -12,6 +12,7 @@ export default function ChatInput({ onSendMessage }) {
   const fileInputRef = useRef(null);
   const recordingTimerRef = useRef(null);
   const recognitionRef = useRef(null);
+  const transcriptRef = useRef('');
 
   const handleSend = () => {
     if (!message.trim()) return;
