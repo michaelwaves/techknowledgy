@@ -47,12 +47,64 @@ export default function ChatInterface({ initialQuestion, initialAnswer, phoneMod
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const userQuestion = input.trim();
     setInput('');
     setIsLoading(true);
 
-    // Simulate AI response delay
+    // Check if user wants a live demonstration
+    const needsDemonstration = userQuestion.toLowerCase().includes('show me') || 
+                               userQuestion.toLowerCase().includes('demonstrate') ||
+                               userQuestion.toLowerCase().includes('can you navigate');
+
+    if (needsDemonstration) {
+      // Use browser automation to demonstrate
+      try {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+        const response = await fetch(`${backendUrl}/api/browser/action`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            url: 'https://support.google.com',
+            action: 'screenshot',
+            instruction: userQuestion
+          })
+        });
+
+        if (response.ok) {
+          const browserResult = await response.json();
+          
+          const assistantMessage = {
+            id: Date.now() + 1,
+            role: 'assistant',
+            content: {
+              explanation: `I've captured a live screenshot to demonstrate. Here's what you'll see when you navigate to the support page.`,
+              steps: [
+                'Open your browser and navigate to the support page',
+                'Look for the settings or help section as shown in the screenshot',
+                'Follow the visual guide to complete your task'
+              ],
+              browserScreenshot: browserResult.data?.screenshot,
+              browserUrl: browserResult.data?.url
+            },
+            timestamp: new Date().toISOString(),
+            showVisualGuide: false,
+            hasBrowserDemo: true
+          };
+
+          setMessages(prev => [...prev, assistantMessage]);
+          setIsLoading(false);
+          toast.success('Live demonstration captured!');
+          return;
+        }
+      } catch (error) {
+        console.error('Browser automation error:', error);
+        // Fall back to regular response
+      }
+    }
+
+    // Regular AI response
     setTimeout(() => {
-      const answer = generateTroubleshootAnswer(input, phoneModel);
+      const answer = generateTroubleshootAnswer(userQuestion, phoneModel);
       
       const assistantMessage = {
         id: Date.now() + 1,
