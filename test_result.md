@@ -273,10 +273,16 @@ metadata:
   test_sequence: 1
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Screen Sharing Form Updates"
+    - "Screen Sharing Button Functionality"
+    - "Screen Sharing User Experience Flow"
+    - "Screen Capture Answer Display"
+    - "Screen Sharing Privacy & Security"
+    - "Screen Sharing Integration with Existing Features"
   stuck_tasks: []
   test_all: false
-  test_priority: "completed"
+  test_priority: "high_first"
 
 agent_communication:
     - agent: "testing"
