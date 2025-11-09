@@ -28,7 +28,7 @@ export default function HeroSection({ onGetStarted }) {
 
           {/* Subheading */}
           <p className="text-lg sm:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Get instant answers to your technology questions. From smartphones to computers, we've got you covered with expert troubleshooting guidance.
+            Get instant answers to your technology questions. From devices (phones, computers, tablets) to software (browsers, apps, programs) - we've got you covered with expert troubleshooting guidance.
           </p>
 
           {/* CTA Buttons */}
