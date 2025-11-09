@@ -24,7 +24,7 @@ async def perform_browser_action(request: BrowserActionRequest):
     """Perform a single browser action"""
     try:
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            browser = await p.firefox.launch(headless=True)
             context = await browser.new_context(
                 viewport={'width': 1280, 'height': 720},
                 user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -121,7 +121,7 @@ async def demonstrate_steps(request: BrowserStepRequest):
     """Demonstrate a series of steps with screenshots"""
     try:
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            browser = await p.firefox.launch(headless=True)
             context = await browser.new_context(
                 viewport={'width': 1280, 'height': 720},
                 user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -194,7 +194,7 @@ async def browser_health():
     """Check if browser automation is working"""
     try:
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            browser = await p.firefox.launch(headless=True)
             await browser.close()
             return {"status": "healthy", "message": "Browser automation is working"}
     except Exception as e:
