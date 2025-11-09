@@ -386,7 +386,7 @@ The good news is that most performance issues can be resolved through optimizati
     ]
   },
   general: {
-    explanation: `I noticed your question might not be about a technical device issue. TechFix is specifically designed to help troubleshoot technology problems like phones, computers, tablets, and their software/hardware issues.\n\nThis appears to be outside our tech support scope. However, I can still provide some general guidance on where to find help for your specific need.`,
+    explanation: `I noticed your question might not be tech-related. TechFix specializes in troubleshooting technology issues including devices (phones, computers, tablets), software (apps, programs, operating systems), and digital services.\n\nThis appears to be outside our tech support scope. However, I can still provide some general guidance on where to find help for your specific need.`,
     steps: [
       'For flight check-in: Visit your airline\'s official website or mobile app',
       'Look for the "Check-in" or "Manage Booking" section on the airline website',
