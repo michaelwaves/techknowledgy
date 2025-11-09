@@ -11,7 +11,7 @@ import uuid
 from datetime import datetime, timezone
 
 # Import browser service
-from api.browser_service import router as browser_router
+from api.browser_service_async import router as browser_router
 
 
 ROOT_DIR = Path(__file__).parent
