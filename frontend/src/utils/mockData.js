@@ -212,6 +212,209 @@ The good news is that most performance issues can be resolved through optimizati
       },
     ],
   },
+  screen: {
+    explanation: `Screen and display issues can range from touch responsiveness problems to brightness issues or dead pixels. Your ${phoneModel} display is one of its most important components, and proper care can prevent many common issues.\n\nMost screen problems are software-related and can be fixed without hardware repair. However, physical damage like cracks or water damage may require professional service.`,
+    steps: [
+      'Clean your screen thoroughly with a microfiber cloth to remove dirt and oils',
+      'Restart your device to resolve temporary display glitches',
+      'Check auto-brightness settings and adjust manually if needed',
+      'Remove any screen protectors temporarily to test if they\'re causing touch issues',
+      'Calibrate touch sensitivity in Settings > Display or Accessibility',
+      'Update your device software to the latest version',
+      'Test in safe mode to rule out third-party app conflicts',
+      'If physical damage is present, contact authorized service center'
+    ],
+    tips: [
+      'Use a quality screen protector to prevent scratches and cracks',
+      'Avoid extreme temperatures which can damage LCD/OLED displays',
+      'Don\'t press too hard on the screen - modern displays are pressure-sensitive',
+      'Keep brightness at moderate levels to extend screen lifespan',
+      'Enable dark mode to reduce OLED screen burn-in risk'
+    ],
+    resources: [
+      {
+        title: 'Display Settings Guide',
+        description: 'Optimize your screen settings for best performance',
+        url: 'https://support.apple.com/guide/iphone/adjust-the-screen-brightness-iph3e2e367e/ios'
+      },
+      {
+        title: 'Touch Screen Troubleshooting',
+        description: 'Fix touch responsiveness and calibration issues',
+        url: 'https://support.google.com/android/answer/6080850'
+      },
+      {
+        title: 'Screen Protection Tips',
+        description: 'How to protect and care for your device screen',
+        url: 'https://www.ifixit.com/News/screen-care-guide'
+      }
+    ],
+    relatedIssues: [
+      {
+        question: 'Is screen burn-in permanent?',
+        answer: 'OLED screen burn-in is permanent but can be minimized. Use dark mode, vary content, reduce brightness, and enable screen timeout to prevent it. LCD screens don\'t suffer from burn-in.'
+      },
+      {
+        question: 'Why is my screen not responding to touch?',
+        answer: 'Clean the screen, restart the device, remove screen protectors, and check if it works in safe mode. If the problem persists, it may be a hardware issue requiring professional repair.'
+      },
+      {
+        question: 'Can I fix a cracked screen myself?',
+        answer: 'While DIY kits exist, professional repair is recommended for modern smartphones due to complex assembly and risk of further damage. Check warranty coverage first.'
+      }
+    ]
+  },
+  app: {
+    explanation: `Application issues like crashes, freezing, or installation problems are common on all devices. Your ${phoneModel} may experience these due to software conflicts, insufficient storage, outdated apps, or corrupted data.\n\nMost app problems can be resolved by clearing cache, updating, or reinstalling the problematic application. Understanding app management is key to a smooth experience.`,
+    steps: [
+      'Force close the problematic app from the app switcher or recent apps menu',
+      'Clear the app cache in Settings > Apps > [App Name] > Clear Cache',
+      'Check for app updates in the App Store or Google Play Store',
+      'Ensure you have sufficient storage space (at least 1-2GB free)',
+      'Restart your device to clear temporary system issues',
+      'If the problem persists, uninstall and reinstall the app',
+      'Check if other users report similar issues (search online or check app reviews)',
+      'Contact the app developer through the app store if the issue continues'
+    ],
+    tips: [
+      'Keep apps updated to get bug fixes and performance improvements',
+      'Don\'t install apps from unknown sources - use official app stores',
+      'Review app permissions and only grant what\'s necessary',
+      'Clear app cache regularly for apps you use frequently',
+      'Uninstall apps you no longer use to free up resources'
+    ],
+    resources: [
+      {
+        title: 'App Store Support',
+        description: 'Downloading and updating apps on iOS',
+        url: 'https://support.apple.com/app-store'
+      },
+      {
+        title: 'Google Play Help',
+        description: 'Fix problems with apps on Android',
+        url: 'https://support.google.com/googleplay/answer/9037938'
+      },
+      {
+        title: 'App Management Best Practices',
+        description: 'How to manage and troubleshoot mobile apps',
+        url: 'https://www.androidauthority.com/how-to-fix-android-apps-crashing-1148830/'
+      }
+    ],
+    relatedIssues: [
+      {
+        question: 'Why do apps keep crashing after an update?',
+        answer: 'New updates may have bugs or compatibility issues. Try clearing cache, restarting your device, or uninstalling and reinstalling the app. Check for a newer update that may fix the issue.'
+      },
+      {
+        question: 'What\'s the difference between clearing cache and clearing data?',
+        answer: 'Clearing cache removes temporary files (safe to do). Clearing data removes all app settings and login info (like a fresh install). Start with cache, only clear data if necessary.'
+      },
+      {
+        question: 'Why can\'t I download or update apps?',
+        answer: 'Check your internet connection, ensure sufficient storage space, verify your payment method is valid, and check if parental controls or restrictions are enabled.'
+      }
+    ]
+  },
+  audio: {
+    explanation: `Audio problems on your ${phoneModel} can include no sound, distorted audio, speaker issues, or headphone jack problems. These issues may stem from software settings, blocked speakers, or hardware damage.\n\nMost audio issues can be resolved through settings adjustments or cleaning, though physical damage may require professional repair.`,
+    steps: [
+      'Check that your device is not in silent mode or Do Not Disturb',
+      'Adjust volume using volume buttons and check all volume settings (ringtone, media, alarm)',
+      'Clean speaker grills and ports gently with a soft brush to remove debris',
+      'Test with headphones to determine if the issue is with speakers or system-wide',
+      'Restart your device to clear any software glitches affecting audio',
+      'Check if any Bluetooth devices are connected and disconnect them',
+      'Reset all settings (Settings > General > Reset > Reset All Settings)',
+      'Test audio in safe mode to rule out third-party app interference'
+    ],
+    tips: [
+      'Don\'t cover speakers with cases or hands during calls or media playback',
+      'Avoid exposing your device to water - even water-resistant devices can develop issues',
+      'Use volume limiting features to prevent speaker damage from loud volumes',
+      'Regularly clean speaker grills to prevent dust buildup',
+      'Test audio immediately after software updates to catch issues early'
+    ],
+    resources: [
+      {
+        title: 'iPhone Sound Issues',
+        description: 'Official Apple guide to fixing audio problems',
+        url: 'https://support.apple.com/en-us/HT203794'
+      },
+      {
+        title: 'Android Audio Troubleshooting',
+        description: 'Fix sound and volume issues on Android devices',
+        url: 'https://support.google.com/android/answer/9079112'
+      },
+      {
+        title: 'Speaker Care Guide',
+        description: 'How to maintain and protect your device speakers',
+        url: 'https://www.ifixit.com/Device/Speaker'
+      }
+    ],
+    relatedIssues: [
+      {
+        question: 'Why is my speaker muffled or distorted?',
+        answer: 'Clean the speaker grills carefully, check for water damage indicators, ensure no debris is stuck, and test at different volumes. If distortion persists at all volumes, it may be hardware damage.'
+      },
+      {
+        question: 'One speaker works but the other doesn\'t - is this normal?',
+        answer: 'Many phones have one speaker and one earpiece (for calls). Check your device specs. If both speakers should work and one doesn\'t, clean the grills or seek repair.'
+      },
+      {
+        question: 'Why does audio only work with headphones?',
+        answer: 'The device may think headphones are still connected. Clean the headphone jack/port, toggle Bluetooth on/off, restart the device, and check for stuck debris in the port.'
+      }
+    ]
+  },
+  general: {
+    explanation: `I noticed your question might not be about a technical device issue. TechFix is specifically designed to help troubleshoot technology problems like phones, computers, tablets, and their software/hardware issues.\n\nFor your question about "${question}", this appears to be outside our tech support scope. However, I can still provide some guidance on where to find help for your specific need.`,
+    steps: [
+      'For flight check-in: Visit your airline\'s official website or mobile app',
+      'Look for the "Check-in" or "Manage Booking" section on the airline website',
+      'Enter your confirmation number and last name from your booking email',
+      'Follow the prompts to select seats and get your boarding pass',
+      'Download the boarding pass to your phone or print it',
+      'If you encounter issues, contact your airline\'s customer service directly',
+      'For tech-related questions (phone, WiFi, battery, etc.), I\'m here to help!'
+    ],
+    tips: [
+      'Save airline apps on your phone for easy mobile check-in',
+      'Check-in typically opens 24 hours before your flight',
+      'Keep your confirmation email handy for reference',
+      'For actual tech problems with your device, feel free to ask me specific questions',
+      'I can help with battery issues, WiFi problems, slow performance, storage, and more'
+    ],
+    resources: [
+      {
+        title: 'Airline Customer Service',
+        description: 'Contact your airline for flight-related questions',
+        url: 'https://www.google.com/search?q=airline+customer+service'
+      },
+      {
+        title: 'Flight Check-in Guide',
+        description: 'General guide to online flight check-in',
+        url: 'https://www.skyscanner.com/tips-and-inspiration/online-check-in-guide'
+      },
+      {
+        title: 'Back to Tech Support',
+        description: 'Ask me about device issues, software problems, or tech troubleshooting',
+        url: '#'
+      }
+    ],
+    relatedIssues: [
+      {
+        question: 'What kind of questions can TechFix help with?',
+        answer: 'TechFix specializes in technology troubleshooting: phone/tablet/computer issues, battery problems, WiFi connectivity, slow performance, storage issues, app crashes, screen problems, audio issues, and software glitches.'
+      },
+      {
+        question: 'Can I still get help for non-tech questions?',
+        answer: 'While TechFix focuses on technology issues, I try to provide helpful guidance for any question. For best results, ask about device problems, software issues, or tech troubleshooting needs.'
+      },
+      {
+        question: 'My device has multiple problems - can you help?',
+        answer: 'Absolutely! Describe all your device issues and I\'ll provide comprehensive troubleshooting steps. You can also ask follow-up questions or use the screen sharing feature to show me the problem.'
+      }
+    ]
+  }
 };
 
 export function generateTroubleshootAnswer(question, phoneModel) {
