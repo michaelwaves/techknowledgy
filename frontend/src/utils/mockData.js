@@ -120,6 +120,11 @@ Before diving into complex solutions, it's important to identify whether the iss
     explanation: `Storage issues occur when your device's internal memory is nearly full, which can slow down performance and prevent new apps or updates from installing. Photos, videos, apps, and cached data are the primary culprits of storage consumption.
 
 Modern smartphones offer various tools to manage storage efficiently, including cloud storage options, storage analyzers, and automatic cleanup features. Regular maintenance can prevent storage from becoming a persistent problem.`,
+    visualGuide: {
+      title: 'Visual Guide: Storage Management',
+      image: 'https://images.pexels.com/photos/20360351/pexels-photo-20360351.jpeg',
+      description: 'Check Settings → Storage to see a breakdown of what\'s using space'
+    },
     steps: [
       'Open Settings > Storage to see what\'s taking up space on your device',
       'Delete unused apps - go through your app list and remove ones you haven\'t used recently',
