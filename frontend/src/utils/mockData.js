@@ -385,6 +385,122 @@ The good news is that most performance issues can be resolved through optimizati
       }
     ]
   },
+  software: {
+    explanation: `Software issues can range from programs not opening, crashing, or running slowly to compatibility problems and missing features. Whether you're using Microsoft Office, Adobe Creative Suite, web browsers, or other applications, most software problems have straightforward solutions.
+
+Understanding basic software troubleshooting can save you time and frustration. Many issues are caused by outdated versions, conflicting programs, or corrupted files.`,
+    visualGuide: {
+      title: 'Visual Guide: Software Management',
+      image: 'https://images.unsplash.com/photo-1607027340690-37e80b0f1b31',
+      description: 'Access your application settings or control panel to manage software'
+    },
+    steps: [
+      'Close the program completely and restart it - this often resolves temporary glitches',
+      'Check for software updates - go to Help > Check for Updates or the app\'s settings',
+      'Restart your computer to clear memory and refresh system resources',
+      'Try running the program as administrator (right-click > Run as Administrator on Windows)',
+      'Check if your operating system is up to date - software often requires latest OS features',
+      'Disable conflicting programs or browser extensions that might interfere',
+      'Repair or reinstall the software through Control Panel (Windows) or Applications folder (Mac)',
+      'Check the software vendor\'s support website for known issues and solutions'
+    ],
+    tips: [
+      'Keep all software updated - updates often include bug fixes and performance improvements',
+      'Save your work frequently to prevent data loss from unexpected crashes',
+      'Check system requirements before installing new software',
+      'Clear temporary files and cache regularly to prevent software slowdowns',
+      'Backup important files before reinstalling or updating major software'
+    ],
+    resources: [
+      {
+        title: 'Microsoft Office Support',
+        description: 'Official troubleshooting for Word, Excel, PowerPoint, and Outlook',
+        url: 'https://support.microsoft.com/office'
+      },
+      {
+        title: 'Adobe Help Center',
+        description: 'Support for Photoshop, Illustrator, Premiere Pro, and other Adobe apps',
+        url: 'https://helpx.adobe.com/'
+      },
+      {
+        title: 'Browser Support',
+        description: 'Help for Chrome, Firefox, Safari, and Edge browsers',
+        url: 'https://support.google.com/chrome'
+      }
+    ],
+    relatedIssues: [
+      {
+        question: 'Why does my software keep crashing?',
+        answer: 'Frequent crashes are often caused by outdated software, insufficient system resources, corrupted files, or conflicts with other programs. Try updating the software, freeing up disk space and RAM, and checking for conflicting programs running in the background.'
+      },
+      {
+        question: 'How do I fix compatibility issues?',
+        answer: 'Compatibility issues occur when software isn\'t designed for your operating system version. Try running in compatibility mode (Windows), check for updates, or contact the vendor for a version compatible with your OS.'
+      },
+      {
+        question: 'What if the software won\'t install?',
+        answer: 'Installation failures can be due to insufficient permissions, lack of disk space, or existing installations. Run the installer as administrator, ensure you have enough free space (at least 2-3x the program size), and completely uninstall any previous versions first.'
+      }
+    ]
+  },
+  browser: {
+    explanation: `Web browser issues can include slow loading times, crashes, extensions not working, or websites not displaying correctly. Modern browsers like Chrome, Firefox, Safari, and Edge are complex applications that can develop problems over time.
+
+Most browser issues can be resolved by clearing cache, disabling problematic extensions, or resetting browser settings. Understanding your browser's tools helps maintain smooth web browsing.`,
+    visualGuide: {
+      title: 'Visual Guide: Browser Settings',
+      image: 'https://images.unsplash.com/photo-1756576357697-13dfc5fff61c',
+      description: 'Access browser settings through the menu (three dots or lines) in the top corner'
+    },
+    steps: [
+      'Clear your browser cache and cookies (Settings > Privacy and Security > Clear browsing data)',
+      'Disable extensions one by one to identify problematic ones (Settings > Extensions)',
+      'Update your browser to the latest version (Settings > About > Check for updates)',
+      'Try opening the problem page in Incognito/Private mode to rule out extension conflicts',
+      'Clear the DNS cache - run "ipconfig /flushdns" in Command Prompt (Windows) or "sudo dscacheutil -flushcache" (Mac)',
+      'Reset browser settings to default (Settings > Advanced > Reset settings)',
+      'Check if the issue occurs in a different browser to isolate the problem',
+      'Disable hardware acceleration if you experience visual glitches (Settings > Advanced > System)'
+    ],
+    tips: [
+      'Keep only essential extensions installed - too many can slow down your browser',
+      'Clear cache and cookies monthly for optimal performance',
+      'Use bookmarks instead of keeping dozens of tabs open',
+      'Enable automatic updates to get security fixes and performance improvements',
+      'Consider using different browsers for different tasks (work vs personal)'
+    ],
+    resources: [
+      {
+        title: 'Chrome Help Center',
+        description: 'Official Google Chrome troubleshooting and support',
+        url: 'https://support.google.com/chrome'
+      },
+      {
+        title: 'Firefox Support',
+        description: 'Mozilla Firefox help articles and community support',
+        url: 'https://support.mozilla.org/products/firefox'
+      },
+      {
+        title: 'Microsoft Edge Help',
+        description: 'Support for Microsoft Edge browser',
+        url: 'https://support.microsoft.com/microsoft-edge'
+      }
+    ],
+    relatedIssues: [
+      {
+        question: 'Why is my browser so slow?',
+        answer: 'Browser slowness is usually caused by too many extensions, accumulated cache/cookies, too many open tabs, or outdated software. Clear your cache, disable unused extensions, close unnecessary tabs, and update to the latest version.'
+      },
+      {
+        question: 'Why do some websites not load correctly?',
+        answer: 'Websites may not load properly due to cache issues, disabled JavaScript, ad blockers, or browser compatibility. Clear cache, disable ad blockers temporarily, ensure JavaScript is enabled, and try a different browser to test.'
+      },
+      {
+        question: 'How do I remove unwanted browser extensions?',
+        answer: 'Go to Settings > Extensions (or type chrome://extensions in Chrome), find the unwanted extension, and click Remove. Be cautious of extensions you don\'t remember installing as they may be malware.'
+      }
+    ]
+  },
   general: {
     explanation: `I noticed your question might not be tech-related. TechFix specializes in troubleshooting technology issues including devices (phones, computers, tablets), software (apps, programs, operating systems), and digital services.\n\nThis appears to be outside our tech support scope. However, I can still provide some general guidance on where to find help for your specific need.`,
     steps: [
