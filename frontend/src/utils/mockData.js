@@ -218,16 +218,22 @@ export function generateTroubleshootAnswer(question, phoneModel) {
   const lowerQuestion = question.toLowerCase();
   
   // Determine the issue type based on keywords
-  let issueType = 'battery'; // default
+  let issueType = 'general'; // default for unrecognized questions
   
-  if (lowerQuestion.includes('wifi') || lowerQuestion.includes('wi-fi') || lowerQuestion.includes('internet') || lowerQuestion.includes('network') || lowerQuestion.includes('connection')) {
+  if (lowerQuestion.includes('battery') || lowerQuestion.includes('charge') || lowerQuestion.includes('drain') || lowerQuestion.includes('power')) {
+    issueType = 'battery';
+  } else if (lowerQuestion.includes('wifi') || lowerQuestion.includes('wi-fi') || lowerQuestion.includes('internet') || lowerQuestion.includes('network') || lowerQuestion.includes('connection')) {
     issueType = 'wifi';
-  } else if (lowerQuestion.includes('slow') || lowerQuestion.includes('lag') || lowerQuestion.includes('freeze') || lowerQuestion.includes('performance')) {
+  } else if (lowerQuestion.includes('slow') || lowerQuestion.includes('lag') || lowerQuestion.includes('freeze') || lowerQuestion.includes('performance') || lowerQuestion.includes('hang')) {
     issueType = 'slow';
   } else if (lowerQuestion.includes('storage') || lowerQuestion.includes('space') || lowerQuestion.includes('memory') || lowerQuestion.includes('full')) {
     issueType = 'storage';
-  } else if (lowerQuestion.includes('battery') || lowerQuestion.includes('charge') || lowerQuestion.includes('drain') || lowerQuestion.includes('power')) {
-    issueType = 'battery';
+  } else if (lowerQuestion.includes('screen') || lowerQuestion.includes('display') || lowerQuestion.includes('brightness') || lowerQuestion.includes('touch')) {
+    issueType = 'screen';
+  } else if (lowerQuestion.includes('app') || lowerQuestion.includes('application') || lowerQuestion.includes('crash') || lowerQuestion.includes('install')) {
+    issueType = 'app';
+  } else if (lowerQuestion.includes('sound') || lowerQuestion.includes('audio') || lowerQuestion.includes('speaker') || lowerQuestion.includes('volume')) {
+    issueType = 'audio';
   }
   
   return commonIssues[issueType];
