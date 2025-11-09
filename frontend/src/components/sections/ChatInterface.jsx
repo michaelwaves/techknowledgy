@@ -241,6 +241,33 @@ export default function ChatInterface({ initialQuestion, initialAnswer, phoneMod
                                 </div>
                               )}
 
+                              {/* Browser Demonstration */}
+                              {message.hasBrowserDemo && message.content.browserScreenshot && (
+                                <div className="mt-4 rounded-lg overflow-hidden border border-border bg-muted/30">
+                                  <div className="p-3 bg-accent/10 border-b border-border">
+                                    <div className="flex items-center gap-2 text-accent">
+                                      <Eye className="h-4 w-4" />
+                                      <span className="text-sm font-semibold">Live Browser Demonstration</span>
+                                    </div>
+                                  </div>
+                                  <div className="p-4">
+                                    <img
+                                      src={`data:image/png;base64,${message.content.browserScreenshot}`}
+                                      alt="Browser demonstration screenshot"
+                                      className="w-full max-w-2xl mx-auto rounded-lg shadow-sm border border-border"
+                                      loading="lazy"
+                                    />
+                                    {message.content.browserUrl && (
+                                      <div className="mt-3 p-2 bg-background rounded border border-border">
+                                        <p className="text-xs text-muted-foreground">
+                                          <strong>URL:</strong> {message.content.browserUrl}
+                                        </p>
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+
                               {/* Steps */}
                               {message.content.steps && message.content.steps.length > 0 && (
                                 <div className="mt-4">
