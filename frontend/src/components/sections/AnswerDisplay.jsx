@@ -120,17 +120,44 @@ export default function AnswerDisplay({ data }) {
                 <CardDescription>{answer.visualGuide.description}</CardDescription>
               </CardHeader>
               <CardContent className="pt-6">
-                <div className="relative rounded-lg overflow-hidden border border-border bg-muted/30 p-4">
+                {/* Main Visual */}
+                <div className="relative rounded-lg overflow-hidden border border-border bg-muted/30 p-4 mb-6">
                   <img
                     src={answer.visualGuide.image}
                     alt={answer.visualGuide.title}
-                    className="w-full max-w-md mx-auto rounded-lg shadow-md"
+                    className="w-full max-w-2xl mx-auto rounded-lg shadow-md"
                     loading="lazy"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
                   />
-                  <p className="text-sm text-muted-foreground text-center mt-4">
-                    <strong>Tip:</strong> Your screen might look slightly different depending on your device model and software version
-                  </p>
+                  <div className="hidden flex-col items-center justify-center h-48 bg-muted rounded-lg">
+                    <Eye className="h-12 w-12 text-muted-foreground mb-2" />
+                    <p className="text-sm text-muted-foreground">Visual guide illustration</p>
+                  </div>
                 </div>
+
+                {/* Quick Visual Steps */}
+                {answer.visualGuide.steps && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    {answer.visualGuide.steps.map((step, index) => (
+                      <div key={index} className="flex items-start gap-3 p-4 rounded-lg bg-accent-light border border-accent/20">
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground font-semibold text-sm">
+                          {step.number}
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-2xl mb-1">{step.icon}</div>
+                          <p className="text-sm text-foreground leading-snug">{step.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <p className="text-sm text-muted-foreground text-center">
+                  <strong>Tip:</strong> Your screen might look slightly different depending on your device model and software version
+                </p>
               </CardContent>
             </Card>
           )}
