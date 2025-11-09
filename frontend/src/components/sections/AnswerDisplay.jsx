@@ -109,6 +109,32 @@ export default function AnswerDisplay({ data }) {
             </CardContent>
           </Card>
 
+          {/* Visual Guide */}
+          {answer.visualGuide && (
+            <Card className="mb-8 shadow-elegant border-accent/30">
+              <CardHeader className="bg-gradient-to-r from-accent/10 to-primary/10">
+                <CardTitle className="flex items-center gap-2 text-xl">
+                  <Eye className="h-6 w-6 text-accent" />
+                  {answer.visualGuide.title}
+                </CardTitle>
+                <CardDescription>{answer.visualGuide.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="relative rounded-lg overflow-hidden border border-border bg-muted/30 p-4">
+                  <img
+                    src={answer.visualGuide.image}
+                    alt={answer.visualGuide.title}
+                    className="w-full max-w-md mx-auto rounded-lg shadow-md"
+                    loading="lazy"
+                  />
+                  <p className="text-sm text-muted-foreground text-center mt-4">
+                    <strong>Tip:</strong> Your screen might look slightly different depending on your device model and software version
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
           {/* Step-by-Step Instructions */}
           <Card className="mb-8 shadow-elegant">
             <CardHeader>
