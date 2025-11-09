@@ -69,8 +69,13 @@ For optimal battery performance, it's essential to manage your device's power-co
 Before diving into complex solutions, it's important to identify whether the issue is specific to your device or affects all devices on the network. This will help narrow down the root cause.`,
     visualGuide: {
       title: 'Visual Guide: WiFi Settings',
-      image: 'https://images.unsplash.com/photo-1753973170095-09e6a8515a0f',
-      description: 'Go to Settings → WiFi to manage your network connections'
+      image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=600&fit=crop&q=80',
+      description: 'Go to Settings → WiFi to manage your network connections',
+      steps: [
+        { number: 1, text: 'Open Settings and tap WiFi or Network', icon: '⚙️' },
+        { number: 2, text: 'Toggle WiFi off and back on', icon: '📶' },
+        { number: 3, text: 'Tap your network name and "Forget"', icon: '🔄' }
+      ]
     },
     steps: [
       'Toggle WiFi off and on in your device settings - this refreshes the connection',
