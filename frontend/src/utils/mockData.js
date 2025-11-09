@@ -264,7 +264,7 @@ The good news is that most performance issues can be resolved through optimizati
     ]
   },
   app: {
-    explanation: `Application issues like crashes, freezing, or installation problems are common on all devices. Your ${phoneModel} may experience these due to software conflicts, insufficient storage, outdated apps, or corrupted data.\n\nMost app problems can be resolved by clearing cache, updating, or reinstalling the problematic application. Understanding app management is key to a smooth experience.`,
+    explanation: `Application issues like crashes, freezing, or installation problems are common on all devices. Your device may experience these due to software conflicts, insufficient storage, outdated apps, or corrupted data.\n\nMost app problems can be resolved by clearing cache, updating, or reinstalling the problematic application. Understanding app management is key to a smooth experience.`,
     steps: [
       'Force close the problematic app from the app switcher or recent apps menu',
       'Clear the app cache in Settings > Apps > [App Name] > Clear Cache',
