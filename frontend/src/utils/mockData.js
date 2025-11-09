@@ -315,7 +315,7 @@ The good news is that most performance issues can be resolved through optimizati
     ]
   },
   audio: {
-    explanation: `Audio problems on your ${phoneModel} can include no sound, distorted audio, speaker issues, or headphone jack problems. These issues may stem from software settings, blocked speakers, or hardware damage.\n\nMost audio issues can be resolved through settings adjustments or cleaning, though physical damage may require professional repair.`,
+    explanation: `Audio problems on your device can include no sound, distorted audio, speaker issues, or headphone jack problems. These issues may stem from software settings, blocked speakers, or hardware damage.\n\nMost audio issues can be resolved through settings adjustments or cleaning, though physical damage may require professional repair.`,
     steps: [
       'Check that your device is not in silent mode or Do Not Disturb',
       'Adjust volume using volume buttons and check all volume settings (ringtone, media, alarm)',
