@@ -559,20 +559,27 @@ export function generateTroubleshootAnswer(question, phoneModel) {
   // Determine the issue type based on keywords
   let issueType = 'general'; // default for unrecognized questions
   
+  // Device-specific issues
   if (lowerQuestion.includes('battery') || lowerQuestion.includes('charge') || lowerQuestion.includes('drain') || lowerQuestion.includes('power')) {
     issueType = 'battery';
   } else if (lowerQuestion.includes('wifi') || lowerQuestion.includes('wi-fi') || lowerQuestion.includes('internet') || lowerQuestion.includes('network') || lowerQuestion.includes('connection')) {
     issueType = 'wifi';
-  } else if (lowerQuestion.includes('slow') || lowerQuestion.includes('lag') || lowerQuestion.includes('freeze') || lowerQuestion.includes('performance') || lowerQuestion.includes('hang')) {
-    issueType = 'slow';
   } else if (lowerQuestion.includes('storage') || lowerQuestion.includes('space') || lowerQuestion.includes('memory') || lowerQuestion.includes('full')) {
     issueType = 'storage';
+  } else if (lowerQuestion.includes('slow') || lowerQuestion.includes('lag') || lowerQuestion.includes('freeze') || lowerQuestion.includes('performance') || lowerQuestion.includes('hang')) {
+    issueType = 'slow';
   } else if (lowerQuestion.includes('screen') || lowerQuestion.includes('display') || lowerQuestion.includes('brightness') || lowerQuestion.includes('touch')) {
     issueType = 'screen';
+  } else if (lowerQuestion.includes('sound') || lowerQuestion.includes('audio') || lowerQuestion.includes('speaker') || lowerQuestion.includes('volume') || lowerQuestion.includes('microphone')) {
+    issueType = 'audio';
+  } 
+  // Software-specific issues
+  else if (lowerQuestion.includes('browser') || lowerQuestion.includes('chrome') || lowerQuestion.includes('firefox') || lowerQuestion.includes('safari') || lowerQuestion.includes('edge') || lowerQuestion.includes('webpage') || lowerQuestion.includes('website')) {
+    issueType = 'browser';
+  } else if (lowerQuestion.includes('software') || lowerQuestion.includes('program') || lowerQuestion.includes('word') || lowerQuestion.includes('excel') || lowerQuestion.includes('powerpoint') || lowerQuestion.includes('photoshop') || lowerQuestion.includes('office') || lowerQuestion.includes('adobe') || lowerQuestion.includes('update')) {
+    issueType = 'software';
   } else if (lowerQuestion.includes('app') || lowerQuestion.includes('application') || lowerQuestion.includes('crash') || lowerQuestion.includes('install')) {
     issueType = 'app';
-  } else if (lowerQuestion.includes('sound') || lowerQuestion.includes('audio') || lowerQuestion.includes('speaker') || lowerQuestion.includes('volume')) {
-    issueType = 'audio';
   }
   
   return commonIssues[issueType];
