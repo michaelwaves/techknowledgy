@@ -411,8 +411,13 @@ The good news is that most performance issues can be resolved through optimizati
 Understanding basic software troubleshooting can save you time and frustration. Many issues are caused by outdated versions, conflicting programs, or corrupted files.`,
     visualGuide: {
       title: 'Visual Guide: Software Management',
-      image: 'https://images.unsplash.com/photo-1607027340690-37e80b0f1b31',
-      description: 'Access your application settings or control panel to manage software'
+      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop&q=80',
+      description: 'Access your application settings or control panel to manage software',
+      steps: [
+        { number: 1, text: 'Open Control Panel or System Settings', icon: '⚙️' },
+        { number: 2, text: 'Navigate to Programs & Features', icon: '💻' },
+        { number: 3, text: 'Right-click the program → Repair/Uninstall', icon: '🔧' }
+      ]
     },
     steps: [
       'Close the program completely and restart it - this often resolves temporary glitches',
