@@ -474,8 +474,13 @@ Understanding basic software troubleshooting can save you time and frustration. 
 Most browser issues can be resolved by clearing cache, disabling problematic extensions, or resetting browser settings. Understanding your browser's tools helps maintain smooth web browsing.`,
     visualGuide: {
       title: 'Visual Guide: Browser Settings',
-      image: 'https://images.unsplash.com/photo-1756576357697-13dfc5fff61c',
-      description: 'Access browser settings through the menu (three dots or lines) in the top corner'
+      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop&q=80',
+      description: 'Access browser settings through the menu (three dots or lines) in the top corner',
+      steps: [
+        { number: 1, text: 'Click the three dots (⋮) in browser corner', icon: '🌐' },
+        { number: 2, text: 'Select "Settings" from the menu', icon: '⚙️' },
+        { number: 3, text: 'Navigate to "Privacy" or "Clear Data"', icon: '🗑️' }
+      ]
     },
     steps: [
       'Clear your browser cache and cookies (Settings > Privacy and Security > Clear browsing data)',
