@@ -27,24 +27,24 @@ export default function QuickQuestions({ onSelectQuestion }) {
     },
     {
       icon: Zap,
-      question: 'My phone is running very slow and laggy',
+      question: 'My computer is running very slow',
       category: 'Performance',
       color: 'text-orange-600 dark:text-orange-500',
       bgColor: 'bg-orange-50 dark:bg-orange-950/30'
     },
     {
       icon: Smartphone,
-      question: 'My screen is not responding to touch',
-      category: 'Display',
-      color: 'text-green-600 dark:text-green-500',
-      bgColor: 'bg-green-50 dark:bg-green-950/30'
+      question: 'My browser keeps crashing',
+      category: 'Software',
+      color: 'text-cyan-600 dark:text-cyan-500',
+      bgColor: 'bg-cyan-50 dark:bg-cyan-950/30'
     },
     {
       icon: Volume2,
-      question: 'No sound coming from my speakers',
-      category: 'Audio',
-      color: 'text-red-600 dark:text-red-500',
-      bgColor: 'bg-red-50 dark:bg-red-950/30'
+      question: 'Microsoft Word won\'t open on my computer',
+      category: 'Software',
+      color: 'text-indigo-600 dark:text-indigo-500',
+      bgColor: 'bg-indigo-50 dark:bg-indigo-950/30'
     }
   ];
 
