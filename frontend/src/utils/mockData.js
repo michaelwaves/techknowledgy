@@ -297,8 +297,13 @@ The good news is that most performance issues can be resolved through optimizati
     explanation: `Application issues like crashes, freezing, or installation problems are common on all devices. Your device may experience these due to software conflicts, insufficient storage, outdated apps, or corrupted data.\n\nMost app problems can be resolved by clearing cache, updating, or reinstalling the problematic application. Understanding app management is key to a smooth experience.`,
     visualGuide: {
       title: 'Visual Guide: App Settings',
-      image: 'https://images.unsplash.com/photo-1762330462311-f75969906e16',
-      description: 'Access Settings → Apps to manage individual app settings and clear cache'
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&q=80',
+      description: 'Access Settings → Apps to manage individual app settings and clear cache',
+      steps: [
+        { number: 1, text: 'Open Settings and tap Apps', icon: '⚙️' },
+        { number: 2, text: 'Find and tap the problematic app', icon: '📱' },
+        { number: 3, text: 'Tap "Clear Cache" or "Force Stop"', icon: '🔄' }
+      ]
     },
     steps: [
       'Force close the problematic app from the app switcher or recent apps menu',
