@@ -5,6 +5,11 @@ const commonIssues = {
     explanation: `Battery drain issues are commonly caused by background apps, screen brightness, or outdated software. Your device's battery health can also deteriorate over time, reducing overall capacity. Background processes, location services, and push notifications can significantly impact battery life.
 
 For optimal battery performance, it's essential to manage your device's power-consuming features and keep your system updated. Most modern devices have built-in battery health monitoring tools that can help identify problematic apps or settings.`,
+    visualGuide: {
+      title: 'Visual Guide: Battery Settings',
+      image: 'https://images.unsplash.com/photo-1607027340685-3e1ae9a54a93',
+      description: 'Navigate to Settings → Battery to see which apps are using the most power'
+    },
     steps: [
       'Open Settings and navigate to Battery settings to identify apps consuming the most power',
       'Disable background app refresh for apps you don\'t need updating constantly',
