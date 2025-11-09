@@ -104,20 +104,26 @@ export default function ChatInput({ onSendMessage }) {
 
     // Stop recognition
     if (recognitionRef.current) {
-      recognitionRef.current.stop();
+      try {
+        recognitionRef.current.stop();
+        recognitionRef.current = null;
+      } catch (error) {
+        console.error('Error stopping recognition:', error);
+      }
     }
 
     // Send voice message
     if (recordingDuration > 0) {
       onSendMessage({
         type: 'voice',
-        content: `Voice message (${recordingDuration}s)`,
+        content: transcriptRef.current || `Voice message (${recordingDuration}s)`,
         duration: recordingDuration
       });
       toast.success('Voice message sent!');
     }
 
     setRecordingDuration(0);
+    transcriptRef.current = '';
   };
 
   useEffect(() => {
