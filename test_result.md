@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the TechFix troubleshooting app thoroughly including hero section, troubleshoot form, answer display, features section, header/footer, and responsive design"
+user_problem_statement: "Test the newly added Screen Sharing feature in TechFix app including form updates, screen sharing button functionality, user experience flow, answer display for screen capture, privacy & security features, and integration with existing features"
 
 frontend:
   - task: "Hero Section Implementation"
