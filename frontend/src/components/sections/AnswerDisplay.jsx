@@ -2,11 +2,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { CheckCircle2, AlertCircle, ExternalLink, Lightbulb, BookOpen, Wrench } from 'lucide-react';
+import { CheckCircle2, AlertCircle, ExternalLink, Lightbulb, BookOpen, Wrench, Monitor, Eye } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export default function AnswerDisplay({ data }) {
-  const { question, phoneModel, answer } = data;
+  const { question, phoneModel, answer, method, screenshot, analysis } = data;
+  const isScreenCapture = method === 'screen-capture';
 
   return (
     <section className="py-16 sm:py-20 bg-background">
@@ -17,7 +18,15 @@ export default function AnswerDisplay({ data }) {
             <CardHeader>
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <CardTitle className="text-2xl mb-2">Your Question</CardTitle>
+                  <div className="flex items-center gap-2 mb-2">
+                    <CardTitle className="text-2xl">Your Question</CardTitle>
+                    {isScreenCapture && (
+                      <Badge variant="secondary" className="bg-accent/20 text-accent">
+                        <Monitor className="h-3 w-3 mr-1" />
+                        Screen Analysis
+                      </Badge>
+                    )}
+                  </div>
                   <CardDescription className="text-base">{question}</CardDescription>
                 </div>
                 <Badge variant="secondary" className="shrink-0">
@@ -25,7 +34,62 @@ export default function AnswerDisplay({ data }) {
                 </Badge>
               </div>
             </CardHeader>
+            {screenshot && (
+              <CardContent>
+                <div className="space-y-2">
+                  <p className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+                    <Eye className="h-4 w-4" />
+                    Captured Screenshot
+                  </p>
+                  <div className="rounded-lg border border-border overflow-hidden bg-muted/30">
+                    <img 
+                      src={screenshot} 
+                      alt="Screen capture" 
+                      className="w-full h-auto max-h-64 object-contain"
+                    />
+                  </div>
+                </div>
+              </CardContent>
+            )}
           </Card>
+
+          {/* Detected Issues (for screen capture) */}
+          {isScreenCapture && analysis?.issues && (
+            <Card className="mb-8 shadow-elegant border-accent/20">
+              <CardHeader className="bg-gradient-to-r from-accent/5 to-primary/5">
+                <CardTitle className="flex items-center gap-2 text-xl">
+                  <AlertCircle className="h-6 w-6 text-accent" />
+                  Analysis Results
+                </CardTitle>
+                <CardDescription>Visual indicators detected in your screen capture</CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  {analysis.issues.map((issue, index) => (
+                    <div key={index} className="p-4 rounded-lg border border-border bg-muted/30">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-semibold text-foreground">{issue.title}</h3>
+                        <Badge 
+                          variant={issue.confidence === 'high' ? 'default' : 'secondary'}
+                          className={issue.confidence === 'high' ? 'bg-warning' : ''}
+                        >
+                          {issue.confidence} confidence
+                        </Badge>
+                      </div>
+                      <ul className="space-y-2 mt-3">
+                        {issue.findings.map((finding, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                            <span>{finding}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Main Answer */}
           <Card className="mb-8 shadow-elegant">
@@ -171,9 +235,11 @@ export default function AnswerDisplay({ data }) {
               className="flex-1"
               onClick={() => {
                 const text = `Question: ${question}\n\nSolution: ${answer.explanation}`;
-                navigator.clipboard.writeText(text);
-                // Note: Using console.log instead of toast as we can't import it here
-                console.log('Copied to clipboard!');
+                navigator.clipboard.writeText(text).then(() => {
+                  // Success handled silently
+                }).catch(() => {
+                  // Error handled silently
+                });
               }}
             >
               Copy Solution
