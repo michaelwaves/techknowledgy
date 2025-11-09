@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -7,16 +7,21 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
-import { Search, Smartphone, Monitor, AlertCircle } from 'lucide-react';
+import { Search, Smartphone, Monitor, AlertCircle, Mic, MicOff, Radio } from 'lucide-react';
 import { generateTroubleshootAnswer } from '@/utils/mockData';
 import { captureScreen, analyzeScreenshot } from '@/utils/screenCapture';
 import { generateScreenAnalysisAnswer } from '@/utils/screenAnalysisData';
+import { startVoiceRecognition, isSpeechRecognitionSupported } from '@/utils/voiceRecognition';
 
 export default function TroubleshootForm({ onSubmit }) {
   const [question, setQuestion] = useState('');
   const [phoneModel, setPhoneModel] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [interimText, setInterimText] = useState('');
+  const recognitionRef = useRef(null);
+  const fullTranscriptRef = useRef('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -98,6 +103,69 @@ export default function TroubleshootForm({ onSubmit }) {
     }
   };
 
+  const handleVoiceInput = () => {
+    if (!isSpeechRecognitionSupported()) {
+      toast.error('Voice input is not supported in your browser. Please use Chrome, Edge, or Safari.');
+      return;
+    }
+
+    if (isListening) {
+      // Stop listening
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+        recognitionRef.current = null;
+      }
+      setIsListening(false);
+      setInterimText('');
+      toast.success('Voice input stopped');
+      return;
+    }
+
+    // Start listening
+    setIsListening(true);
+    fullTranscriptRef.current = question; // Keep existing text
+    toast.info('Listening... Speak now!');
+
+    const recognition = startVoiceRecognition(
+      (result) => {
+        // Update interim text for live feedback
+        setInterimText(result.interim);
+        
+        // Update final transcript
+        if (result.final) {
+          fullTranscriptRef.current = (fullTranscriptRef.current + ' ' + result.final).trim();
+          setQuestion(fullTranscriptRef.current);
+          setInterimText('');
+        }
+      },
+      (error) => {
+        toast.error(error);
+        setIsListening(false);
+        setInterimText('');
+        recognitionRef.current = null;
+      },
+      () => {
+        setIsListening(false);
+        setInterimText('');
+        recognitionRef.current = null;
+      }
+    );
+
+    if (recognition) {
+      recognitionRef.current = recognition;
+      recognition.start();
+    }
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (recognitionRef.current) {
+        recognitionRef.current.stop();
+      }
+    };
+  }, []);
+
   return (
     <section className="py-16 sm:py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,7 +175,7 @@ export default function TroubleshootForm({ onSubmit }) {
               Describe Your Issue
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground">
-              Tell us what's wrong or share your screen for instant analysis
+              Type, speak, or share your screen for instant analysis
             </p>
           </div>
 
@@ -150,21 +218,55 @@ export default function TroubleshootForm({ onSubmit }) {
                   </Select>
                 </div>
 
-                {/* Question Input */}
+                {/* Question Input with Voice */}
                 <div className="space-y-2">
-                  <Label htmlFor="question">
-                    What problem are you experiencing?
-                  </Label>
-                  <Textarea
-                    id="question"
-                    placeholder="Example: My phone's battery drains quickly even when not in use. It used to last all day but now dies by afternoon..."
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                    rows={6}
-                    className="resize-none"
-                  />
+                  <div className="flex items-center justify-between">
+                    <Label htmlFor="question">
+                      What problem are you experiencing?
+                    </Label>
+                    <Button
+                      type="button"
+                      variant={isListening ? "destructive" : "outline"}
+                      size="sm"
+                      className="h-8"
+                      onClick={handleVoiceInput}
+                    >
+                      {isListening ? (
+                        <>
+                          <Radio className="h-4 w-4 mr-2 animate-pulse" />
+                          Stop
+                        </>
+                      ) : (
+                        <>
+                          <Mic className="h-4 w-4 mr-2" />
+                          Voice Input
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                  
+                  <div className="relative">
+                    <Textarea
+                      id="question"
+                      placeholder="Example: My phone's battery drains quickly even when not in use. It used to last all day but now dies by afternoon..."
+                      value={question + (interimText ? ' ' + interimText : '')}
+                      onChange={(e) => setQuestion(e.target.value)}
+                      rows={6}
+                      className={`resize-none ${isListening ? 'border-destructive ring-2 ring-destructive/20' : ''}`}
+                      disabled={isListening}
+                    />
+                    {isListening && (
+                      <div className="absolute bottom-3 right-3 flex items-center gap-2 bg-destructive text-destructive-foreground px-3 py-1.5 rounded-full text-sm font-medium">
+                        <Radio className="h-4 w-4 animate-pulse" />
+                        Listening...
+                      </div>
+                    )}
+                  </div>
+                  
                   <p className="text-xs text-muted-foreground">
-                    Be as specific as possible. Include error messages, when it started, and what you've already tried.
+                    {isListening 
+                      ? 'Speak clearly and describe your problem. Click "Stop" when done.'
+                      : 'Be as specific as possible. Include error messages, when it started, and what you\'ve already tried.'}
                   </p>
                 </div>
 
@@ -173,7 +275,7 @@ export default function TroubleshootForm({ onSubmit }) {
                   type="submit" 
                   size="lg" 
                   className="w-full h-12 text-base font-semibold"
-                  disabled={isLoading || isCapturing}
+                  disabled={isLoading || isCapturing || isListening}
                 >
                   {isLoading ? (
                     <>
@@ -220,7 +322,7 @@ export default function TroubleshootForm({ onSubmit }) {
                         size="lg"
                         className="w-full h-11"
                         onClick={handleScreenCapture}
-                        disabled={isLoading || isCapturing || !phoneModel}
+                        disabled={isLoading || isCapturing || !phoneModel || isListening}
                       >
                         {isCapturing ? (
                           <>
