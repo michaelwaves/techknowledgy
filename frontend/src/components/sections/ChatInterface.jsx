@@ -252,7 +252,7 @@ export default function ChatInterface({ initialQuestion, initialAnswer, phoneMod
                                   </div>
                                   <div className="p-4">
                                     <img
-                                      src={`data:image/png;base64,${message.content.browserScreenshot}`}
+                                      src={message.content.browserScreenshot}
                                       alt="Browser demonstration screenshot"
                                       className="w-full max-w-2xl mx-auto rounded-lg shadow-sm border border-border"
                                       loading="lazy"
